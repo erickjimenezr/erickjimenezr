@@ -1,7 +1,6 @@
-# 
 Para consultar un cliente:
 GET http://localhost:8080/v1/client/{id}
-Donde {id} es una variable de tipo Integer(0 - 999999999)
+Donde {id} es un path variable de tipo Integer(0 - 999999999)
 
 En caso de existir un cliente regresa un HTTP 200 OK con el siguiente response body:
 {
