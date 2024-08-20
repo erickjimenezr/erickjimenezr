@@ -5,7 +5,6 @@ import com.exercise.service.ClientService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -15,7 +14,6 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/v1")
 @RequiredArgsConstructor
-@Slf4j
 @Validated
 public class ClientController {
 
@@ -30,7 +28,6 @@ public class ClientController {
 
     @PostMapping("/client")
     public Mono<ResponseEntity<ClientDto>> saveClient(@Valid @RequestBody ClientDto clientDto){
-        log.info("Aqui");
         return clientService.saveClient(clientDto)
                 .map(client -> ResponseEntity.status(HttpStatus.CREATED).body(client));
     }
